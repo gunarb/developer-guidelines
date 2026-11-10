@@ -153,6 +153,12 @@ de carpetas. Aplicar cada regla cuando corresponda al tipo de trabajo.
   valor, especialmente en sincronizaciones de ramas permanentes.
 - Resolver conversaciones y ejecutar los checks pertinentes antes del merge.
   Configurar protección de ramas cuando esté disponible; no asumir que existe.
+- Cuando el usuario confirme que un PR hacia `develop` fue aprobado y mergeado,
+  cambiar automáticamente el repositorio local a `develop`, actualizarlo mediante
+  fast-forward y eliminar la rama local de origen si es temporal (`feature/*`,
+  `bug/*` o el legado `fix/*`). No pedir una confirmación adicional para esta
+  limpieza. Preservar y comunicar cambios locales sin commit que impidan realizarla;
+  no eliminar la rama remota salvo solicitud explícita.
 - Revisar compatibilidad, secretos, migraciones y reversión antes de producción
   según el alcance. No mezclar trabajo incompleto en un PR destinado a `main`.
 
