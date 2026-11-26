@@ -1,33 +1,42 @@
 # Developer Guidelines
 
-Fuente de verdad de mis reglas de desarrollo y colaboración con agentes de IA,
-independiente del stack tecnológico. Repositorio privado.
+The source of truth for my development and AI-agent collaboration guidelines,
+independent of technology stack.
 
-## Estructura
+## Repository contents
 
-- [Base normativa](AI_GUIDELINESS_BASE.md).
-- [Plantilla de guías por proyecto](templates/AI_GUIDELINESS.md).
-- [Entrada para Codex](templates/AGENTS.md).
-- [Entrada para Claude](templates/CLAUDE.md).
-- [Plantilla de Pull Request](templates/pull_request_template.md).
+- [Shared guidelines](AI_GUIDELINESS_BASE.md).
+- [Project guidelines template](templates/AI_GUIDELINESS.md).
+- [Codex entry point](templates/AGENTS.md).
+- [Claude entry point](templates/CLAUDE.md).
+- [GitHub Copilot entry point](templates/copilot-instructions.md).
+- [Pull request template](templates/pull_request_template.md).
 
-## Adopción en un proyecto
+## Adopting these guidelines in a project
 
-1. Copiar `templates/AI_GUIDELINESS.md` a la raíz del proyecto.
-2. Registrar en ella el repositorio de esta base, un SHA completo y la forma de
-   acceso autenticado o la ruta del checkout local. Reemplazar los placeholders.
-3. Completar stack, arquitectura, comandos reales y adaptaciones del proyecto.
-4. Copiar la entrada de cada agente utilizado a la raíz del proyecto.
-5. Copiar la plantilla de PR a `.github/pull_request_template.md` y ajustarla.
-6. Comprobar que el agente puede leer la revisión fijada de la base antes de trabajar.
+1. Copy `templates/AI_GUIDELINESS.md` to the project root.
+2. Record this repository, a full commit SHA, and how to access that exact
+   revision. Replace the placeholders.
+3. Document the actual stack, architecture, commands, and project-specific
+   adaptations.
+4. Copy each agent entry point to its supported location in the project, such as
+   `AGENTS.md`, `CLAUDE.md`, or `.github/copilot-instructions.md`.
+5. Copy and adapt the pull request template to `.github/pull_request_template.md`.
+6. Before work begins, verify that the agent can read the pinned revision of the
+   shared guidelines.
 
-La cadena de lectura es: archivo del agente → guías del proyecto → base compartida.
-Cada proyecto fija su revisión para que las actualizaciones sean explícitas.
-No hace falta copiar las reglas generales dentro de cada guía particular.
+The reading order is: agent entry point → project guidelines → shared guidelines.
+Each project pins a revision so updates are explicit. General rules do not need
+to be copied into every project-specific guide.
 
-## Mantenimiento
+## Maintenance
 
-Cambiar reglas generales aquí y decisiones particulares en el proyecto correspondiente.
-Usar PR hacia `develop`, estabilizar y publicar hacia `main` según la base.
-La creación inicial del repositorio constituye la excepción de bootstrap; después
-se aplica el flujo de PR. Este repositorio documental no despliega un producto.
+Update general rules here and project-specific decisions in the relevant project.
+Use pull requests targeting `develop`, then stabilize and publish to `main` as
+described in the shared guidelines. Initial repository creation is the bootstrap
+exception; use the pull request workflow thereafter. This documentation repository
+does not deploy a product.
+
+## License
+
+Released under the [MIT License](LICENSE).
