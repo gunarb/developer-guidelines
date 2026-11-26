@@ -22,8 +22,13 @@ Complete with the actual technologies, versions, folders, and responsibilities.
 
 ## Project-specific conventions
 
-Complete with applicable content, languages, styles, data, permissions, and
-integrations.
+Complete with applicable content, styles, data, permissions, and integrations.
+
+## Project language
+
+- Project language: `<English or Spanish>`. Use it for the README, project
+  documentation, and pull requests. Install the matching pull request template.
+- Product languages: `<supported user-facing languages, if applicable>`.
 
 ## Validation
 
