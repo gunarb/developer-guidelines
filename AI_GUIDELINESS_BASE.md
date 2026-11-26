@@ -1,177 +1,190 @@
-# Guías de desarrollo asistido por IA
+# AI-Assisted Development Guidelines
 
-Fuente de verdad compartida para iniciar y trabajar en cualquier proyecto juntos.
-Estas reglas son independientes del producto, stack, infraestructura y estructura
-de carpetas. Aplicar cada regla cuando corresponda al tipo de trabajo.
+The shared source of truth for starting and working on projects together. These
+rules are independent of product, technology stack, infrastructure, and folder
+structure. Apply each rule when relevant to the work.
 
-## Alcance y adaptación
+## Scope and adaptation
 
-- Leer este documento completo antes de analizar o modificar un proyecto.
-- Registrar arquitectura, comandos, idiomas del producto y decisiones particulares
-  en un documento separado de guías del proyecto, sin mezclarlos con esta base.
-- Las adaptaciones explícitas del proyecto prevalecen sobre esta base en su ámbito;
-  las instrucciones directas del usuario y las de mayor prioridad prevalecen siempre.
-- Mantener aquí las reglas generales y evitar duplicarlas en otros documentos.
-- Al reutilizar esta base en otro repositorio, revisar sus instrucciones existentes
-  y resolver contradicciones antes de implementar. Las copias no se sincronizan
-  automáticamente entre repositorios.
+- Read this document in full before analyzing or modifying a project.
+- Record architecture, commands, product languages, and project-specific decisions
+  in a separate project-guidelines document; do not mix them into this shared base.
+- Explicit project adaptations take precedence over this base within their scope.
+  Direct user instructions and higher-priority instructions always take precedence.
+- Keep general rules here and avoid duplicating them in other documents.
+- When reusing this base in another repository, review its existing instructions
+  and resolve conflicts before implementing. Copies are not synchronized
+  automatically across repositories.
 
-## 1. Antes de implementar
+## 1. Before implementation
 
-- Leer las instrucciones del repositorio y revisar el estado de Git.
-- Inspeccionar código, datos, componentes y documentación relacionados.
-- Identificar qué reutilizar, extender o crear. Preservar cambios ajenos.
-- Mantener los cambios enfocados; registrar mejoras ajenas como seguimiento.
-- Evitar refactors, renombres, formateos masivos o dependencias sin relación con la tarea.
+- Read the repository instructions and check the Git status.
+- Inspect relevant code, data, components, and documentation.
+- Identify what to reuse, extend, or create. Preserve changes made by others.
+- Keep changes focused; track unrelated improvements separately.
+- Avoid unrelated refactors, renames, mass formatting, or dependencies.
 
-## 2. Claridad y diseño del código
+## 2. Code clarity and design
 
-- Mantener el flujo principal fácil de seguir; preferir guard clauses cuando
-  reduzcan anidamientos. No fragmentar operaciones sencillas en abstracciones vacías.
-- Nombrar por significado del dominio y responsabilidad. Los booleanos deben
-  expresar afirmaciones o preguntas, como `isAvailable` o `canPublish`.
-- Usar el mismo término para un mismo concepto en interfaz, contratos y datos.
-- Separar composición, reglas de negocio y efectos. Las páginas o rutas coordinan;
-  las responsabilidades específicas viven en módulos adecuados al framework.
-- Encapsular integraciones externas tras fronteras claras cuando aporten aislamiento
-  o testabilidad. No crear capas, interfaces o clases sin una necesidad concreta.
-- Validar entradas en las fronteras de confianza y representar estados con tipos
-  precisos; evitar combinaciones contradictorias de booleanos y valores ambiguos.
-- Mantener contratos explícitos y tipados cuando el lenguaje lo permita. Evitar
-  `any` y mantener comprobaciones estrictas en proyectos TypeScript.
-- Separar cálculos y decisiones de persistencia, navegación y llamadas externas
-  cuando esa separación facilite entender y probar el comportamiento.
+- Keep the main flow easy to follow; prefer guard clauses when they reduce
+  nesting. Do not split simple operations into empty abstractions.
+- Name things for their domain meaning and responsibility. Booleans should
+  express statements or questions, such as `isAvailable` or `canPublish`.
+- Use the same term for the same concept across UI, contracts, and data.
+- Separate composition, business rules, and side effects. Pages or routes
+  coordinate; specific responsibilities belong in modules appropriate to the
+  framework.
+- Encapsulate external integrations behind clear boundaries when that improves
+  isolation or testability. Do not add layers, interfaces, or classes without a
+  concrete need.
+- Validate inputs at trust boundaries and represent states with precise types;
+  avoid contradictory boolean combinations and ambiguous values.
+- Keep contracts explicit and typed where the language allows. Avoid `any` and
+  keep strict checks enabled in TypeScript projects.
+- Separate calculations and decisions from persistence, navigation, and external
+  calls when doing so makes behavior easier to understand and test.
 
-## 3. Componentes, contenido y presentación
+## 3. Components, content, and presentation
 
-- Revisar componentes existentes antes de crear markup; reutilizar patrones visuales
-  y semánticos equivalentes sin generalizar prematuramente.
-- Las páginas componen componentes y conectan contenido. Extraer bloques con
-  responsabilidad, interacción o reutilización propias.
-- Separar contenido editorial y datos de negocio de la presentación; usar el CMS,
-  configuración o fixtures apropiados. Los textos internos de interfaz pueden
-  residir en el mecanismo de traducciones del producto.
-- No inventar información real. Identificar claramente mocks y placeholders.
-- No afirmar que una operación guardó o envió datos si el efecto no ocurrió.
-- Mantener estado local para interacción; derivar valores en lugar de duplicarlos
-  innecesariamente en estado.
+- Review existing components before creating markup; reuse equivalent visual and
+  semantic patterns without generalizing prematurely.
+- Pages compose components and connect content. Extract blocks that have their
+  own responsibility, interaction, or reuse.
+- Separate editorial content and business data from presentation; use the
+  appropriate CMS, configuration, or fixtures. Internal UI text may live in the
+  product's translation mechanism.
+- Do not invent real-world information. Clearly identify mocks and placeholders.
+- Do not claim an operation saved or sent data when that effect did not occur.
+- Keep interaction state local; derive values instead of unnecessarily
+  duplicating them in state.
 
-## 4. Diseño y accesibilidad
+## 4. Design and accessibility
 
-- Centralizar colores, tipografía, espaciados y breakpoints compartidos en tokens
-  semánticos. Seguir la solución de estilos del proyecto, sin imponer SCSS o BEM.
-- Diseñar mobile-first y verificar los tamaños relevantes de móvil, tablet y escritorio.
-- Reservar espacio para imágenes y contenido asíncrono para evitar saltos de layout.
-- Usar HTML semántico, labels, foco visible, teclado, contraste WCAG AA y áreas
-  táctiles adecuadas. Respetar `prefers-reduced-motion`.
-- No depender exclusivamente de hover, color o animación para funciones esenciales.
-- Usar las convenciones de navegación y renderizado del framework elegido.
+- Centralize shared colors, typography, spacing, and breakpoints in semantic
+  tokens. Follow the project's styling solution; do not impose SCSS or BEM.
+- Design mobile-first and verify relevant mobile, tablet, and desktop sizes.
+- Reserve space for images and asynchronous content to prevent layout shifts.
+- Use semantic HTML, labels, visible focus, keyboard support, WCAG AA contrast,
+  and appropriately sized touch targets. Respect `prefers-reduced-motion`.
+- Do not rely exclusively on hover, color, or animation for essential functions.
+- Follow the chosen framework's navigation and rendering conventions.
 
-## 5. Errores, datos y seguridad
+## 5. Errors, data, and security
 
-- Mostrar errores claros, seguros y accionables en el idioma de la interfaz.
-- Conservar contexto técnico útil en observabilidad sin exponer secretos ni datos
-  sensibles. No silenciar excepciones ni devolver éxito tras un fallo.
-- Validar permisos y entradas en el servidor o servicio que actúe como frontera
-  de confianza; la validación del navegador mejora la experiencia y no la reemplaza.
-- No versionar credenciales. Usar configuración por entorno y ejemplos sin secretos.
-- Exponer únicamente los datos necesarios para cada audiencia y permiso.
-- Cuando haya persistencia propia, proteger invariantes con restricciones y usar
-  migraciones versionadas y transacciones coherentes para cambios relacionados.
-- Cuando haya APIs, mantener semántica HTTP, contratos de error y formatos
-  consistentes; coordinar cambios incompatibles y actualizar clientes y documentación.
+- Show clear, safe, actionable errors in the interface language.
+- Preserve useful technical context for observability without exposing secrets or
+  sensitive data. Do not silence exceptions or report success after a failure.
+- Validate permissions and inputs in the server or service acting as the trust
+  boundary; browser validation improves UX but does not replace it.
+- Do not commit credentials. Use environment-based configuration and examples
+  without secrets.
+- Expose only the data required for each audience and permission.
+- When using owned persistence, protect invariants with constraints and use
+  versioned migrations and coherent transactions for related changes.
+- When using APIs, keep HTTP semantics, error contracts, and formats consistent;
+  coordinate breaking changes and update clients and documentation.
 
-## 6. Dependencias y verificación
+## 6. Dependencies and verification
 
-- Evaluar capacidades existentes antes de añadir dependencias.
-- Mantener manifiestos y lockfiles coherentes; usar instalaciones reproducibles.
-  No editar lockfiles a mano ni aplicar correcciones forzadas sin revisar su impacto.
-- Ejecutar las verificaciones disponibles y pertinentes: tipos, lint, build y
-  pruebas según el cambio. No inventar comandos ni declarar verificaciones no ejecutadas.
-- Añadir pruebas de comportamiento cuando el riesgo y la lógica lo justifiquen;
-  cubrir fallos relevantes y evitar pruebas que solo repitan la implementación.
-- Mantener pruebas independientes y reproducibles, sin depender de datos reales
-  o servicios externos salvo integración explícitamente preparada para ello.
-- No desactivar checks, ocultar errores o reducir exigencias para conseguir un resultado verde.
+- Evaluate existing capabilities before adding dependencies.
+- Keep manifests and lockfiles consistent; use reproducible installs. Do not edit
+  lockfiles manually or apply forced fixes without reviewing their impact.
+- Run the relevant available checks: types, lint, build, and tests as appropriate
+  to the change. Do not invent commands or claim checks that were not run.
+- Add behavioral tests when the risk and logic justify them; cover relevant
+  failures and avoid tests that merely restate the implementation.
+- Keep tests independent and reproducible, without relying on real data or
+  external services unless explicitly set up as integration tests.
+- Do not disable checks, hide errors, or lower requirements to get a green result.
 
-## 7. Documentación y entrega
+## 7. Documentation and delivery
 
-- Actualizar documentación afectada junto con el cambio. Al modificar guías,
-  revisar README, documentación de áreas, `docs/`, plantillas y ejemplos existentes.
-- Mantener una fuente de verdad por regla; resumir y enlazar en vez de duplicar.
-- Distinguir funcionalidades implementadas, propuestas y pendientes. Documentar
-  contratos, intención y efectos relevantes; evitar comentarios que solo repitan código.
-- Informar qué cambió, por qué, qué se verificó y qué limitaciones o placeholders quedan.
-- Indicar explícitamente qué documentación revisada no necesitó cambios.
+- Update affected documentation with the change. When editing guidelines, review
+  the README, area-specific documentation, `docs/`, templates, and existing
+  examples.
+- Keep one source of truth per rule; summarize and link instead of duplicating.
+- Distinguish implemented, proposed, and pending functionality. Document
+  contracts, intent, and relevant effects; avoid comments that only restate code.
+- Report what changed, why, what was verified, and any remaining limitations or
+  placeholders.
+- Explicitly note which reviewed documentation did not need changes.
 
-## 8. Git e idioma
+## 8. Git and language
 
-- Aplicar la política de commits convencionales definida al final de este documento.
-- Escribir código e identificadores técnicos en inglés; documentación y explicaciones
-  del proyecto en español, salvo la política explícita del proyecto destino.
-- Adaptar los textos visibles a los idiomas del producto.
-- Aplicar la estrategia de ramas y PR siguiente. Los checks y el despliegue
-  concretos se definen en cada proyecto.
+- Follow the Conventional Commits policy at the end of this document.
+- Write code and technical identifiers in English. Use the project's explicitly
+  chosen language for its documentation and explanations.
+- Adapt user-facing text to the product's languages.
+- Follow the branching and pull request strategy below. Each project defines its
+  specific checks and deployment process.
 
-## Commits convencionales
+## Conventional Commits
 
-- Todos los commits deben seguir [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
-- El encabezado obligatorio usa el formato `<type>[optional scope]: <description>`.
-- Usar `feat` para una funcionalidad o componente nuevo y `fix` para corregir un defecto. Se permiten tipos como `refactor`, `docs`, `test`, `build`, `ci` y `chore` cuando describan mejor la intención.
-- El scope debe ser un sustantivo breve, en minúsculas y con guiones cuando tenga varias palabras, por ejemplo `feat(contact-details): ...`.
-- La descripción debe ser breve, específica, escrita en presente imperativo y sin punto final, por ejemplo: `feat(contact-details): add reusable contact channel component`.
-- El mensaje debe explicar la intención del cambio, no limitarse al nombre del archivo. Usar un body separado por una línea en blanco cuando haga falta contexto adicional.
-- Los breaking changes deben usar `!` antes de `:` o un footer `BREAKING CHANGE: ...` según la especificación.
-- Antes de confirmar cambios, agrupar archivos por responsabilidad para que cada commit sea coherente y pueda revisarse o revertirse de forma independiente.
+- All commits must follow [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+- The required header format is `<type>[optional scope]: <description>`.
+- Use `feat` for a new feature or component and `fix` to correct a defect. Types
+  such as `refactor`, `docs`, `test`, `build`, `ci`, and `chore` are also allowed
+  when they better describe the intent.
+- The scope should be a short, lowercase noun, using hyphens for multiple words,
+  for example `feat(contact-details): ...`.
+- The description should be brief, specific, in the imperative present tense,
+  and without a final period, for example:
+  `feat(contact-details): add reusable contact channel component`.
+- The message should explain the intent, not just name the file. Add a body
+  separated by a blank line when context is needed.
+- Breaking changes must use `!` before `:` or a `BREAKING CHANGE: ...` footer,
+  as specified.
+- Before committing, group files by responsibility so each commit is coherent
+  and can be reviewed or reverted independently.
 
-## Estrategia de ramas y Pull Requests
+## Branching strategy and pull requests
 
-- `main`: versión estable y fuente oficial de producción. El proyecto debe indicar
-  si un merge dispara un despliegue automático; no asumirlo.
-- `develop`: integración del trabajo para la próxima versión.
-- No realizar commits directos, force pushes ni eliminar `main` o `develop`.
-  Integrar cambios mediante PR y las validaciones aplicables.
-- `feature/*`: funcionalidades; sale de `develop` y vuelve a `develop`.
-- `bug/*`: correcciones no urgentes; sale de `develop` y vuelve a `develop`.
-  Usar este prefijo consistentemente, sin alternarlo con `bugs/*` o `fix/*`.
-- `hotfix/*`: corrección urgente de producción; sale de `main`, vuelve a `main`
-  y después se sincroniza hacia `develop` mediante PR.
-- `release/*`: estabilización de una versión desde `develop`; solo correcciones,
-  documentación y configuración necesarias para publicar. Se integra a `main`,
-  se sincroniza hacia `develop` y se etiqueta cuando corresponda.
-- No mantener ramas de release permanentes. Eliminar ramas temporales después
-  del merge cuando sea seguro.
-- Una funcionalidad independiente destinada a producción puede salir de `main`
-  excepcionalmente cuando `develop` contenga trabajo incompleto. Documentar el
-  motivo en el PR y sincronizar después `main` hacia `develop`.
-- Un proyecto puede adoptar un flujo más simple mediante una excepción explícita
-  en sus guías; no crear ramas o infraestructura sin necesidad operativa.
-- Los PR usan título Conventional Commits y la plantilla del repositorio.
-  Explicar problema, resultado, validación y riesgos pertinentes; omitir secciones
-  que no apliquen. No marcar verificaciones que no se ejecutaron.
-- Preferir squash merge en ramas de trabajo. Conservar historial cuando aporte
-  valor, especialmente en sincronizaciones de ramas permanentes.
-- Resolver conversaciones y ejecutar los checks pertinentes antes del merge.
-  Configurar protección de ramas cuando esté disponible; no asumir que existe.
-- Cuando el usuario confirme que un PR hacia `develop` fue aprobado y mergeado,
-  cambiar automáticamente el repositorio local a `develop`, actualizarlo mediante
-  fast-forward y eliminar la rama local de origen si es temporal (`feature/*`,
-  `bug/*` o el legado `fix/*`). No pedir una confirmación adicional para esta
-  limpieza. Preservar y comunicar cambios locales sin commit que impidan realizarla;
-  no eliminar la rama remota salvo solicitud explícita.
-- Revisar compatibilidad, secretos, migraciones y reversión antes de producción
-  según el alcance. No mezclar trabajo incompleto en un PR destinado a `main`.
+- `main`: stable version and official production source. The project must state
+  whether a merge triggers an automatic deployment; do not assume one.
+- `develop`: integration branch for work targeting the next release.
+- Do not commit directly to, force-push to, or delete `main` or `develop`.
+  Integrate changes through pull requests and applicable validations.
+- `feature/*`: features; branch from and merge back into `develop`.
+- `bug/*`: non-urgent fixes; branch from and merge back into `develop`. Use this
+  prefix consistently; do not alternate with `bugs/*` or `fix/*`.
+- `hotfix/*`: urgent production fixes; branch from and merge into `main`, then
+  synchronize back to `develop` through a pull request.
+- `release/*`: release stabilization from `develop`; include only fixes,
+  documentation, and configuration needed to publish. Merge into `main`,
+  synchronize back to `develop`, and tag when appropriate.
+- Do not keep permanent release branches. Delete temporary branches after merge
+  when safe.
+- An independent production feature may exceptionally branch from `main` when
+  `develop` contains incomplete work. Document the reason in the PR and later
+  synchronize `main` back to `develop`.
+- A project may explicitly adopt a simpler workflow in its guidelines; do not
+  create branches or infrastructure without an operational need.
+- PRs use a Conventional Commits title and the repository template. Explain the
+  problem, result, validation, and relevant risks; omit sections that do not
+  apply. Do not mark checks that were not run.
+- Prefer squash merging for work branches. Preserve history when it adds value,
+  especially for synchronization of permanent branches.
+- Resolve conversations and run relevant checks before merging. Configure branch
+  protection when available; do not assume it exists.
+- When the user confirms that a PR to `develop` was approved and merged,
+  automatically switch the local repository to `develop`, update it with
+  fast-forward, and delete the source local branch if it is temporary
+  (`feature/*`, `bug/*`, or legacy `fix/*`). Do not ask for additional
+  confirmation for this cleanup. Preserve and report uncommitted local changes
+  that prevent it; do not delete the remote branch unless explicitly requested.
+- Review compatibility, secrets, migrations, and rollback before production as
+  appropriate to the scope. Do not merge incomplete work in a PR targeting `main`.
 
-## Lectura por agentes y adopción
+## Agent reading and adoption
 
-- Cada agente debe leer su archivo de entrada, las guías del proyecto y esta base
-  completa antes de desarrollar. Las instrucciones se aplican según su prioridad.
-- El proyecto debe fijar la revisión de esta base mediante un commit completo.
-  Leer el archivo autenticándose en el repositorio privado o usar un checkout local
-  en esa revisión; un enlace por sí solo no cuenta como lectura.
-- Si la base no está disponible, informar la limitación y solicitar acceso o una
-  copia verificada antes de implementar. No asumir que se recuerda su contenido.
-- Las reglas específicas complementan la base. Registrar cualquier adaptación
-  explícita, su motivo y ámbito, sin alterar silenciosamente la regla compartida.
-- Actualizar la revisión de la base mediante un cambio revisable y comprobar su
-  impacto sobre las guías particulares; no seguir automáticamente una rama mutable.
+- Every agent must read its entry-point file, the project guidelines, and this
+  complete base before development. Instructions apply according to their priority.
+- Projects must pin the revision of this base using a full commit SHA. Read the
+  file from a local checkout at that revision or retrieve its complete contents
+  at the pinned revision; a link alone does not count as having read it.
+- If the base is unavailable, report the limitation and request access or a
+  verified copy before implementing. Do not assume its contents are remembered.
+- Project-specific rules complement this base. Record any explicit adaptation,
+  its reason, and scope; do not silently alter the shared rule.
+- Update the pinned revision through a reviewable change and check its impact on
+  project-specific guidelines; do not automatically follow a mutable branch.
