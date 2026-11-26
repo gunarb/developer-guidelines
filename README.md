@@ -1,33 +1,58 @@
 # Developer Guidelines
 
-Fuente de verdad de mis reglas de desarrollo y colaboración con agentes de IA,
-independiente del stack tecnológico. Repositorio privado.
+I created this repository to capture the development practices I want to carry
+from one project to the next, especially when working with AI coding agents.
+It gives developers and agents a shared reference for how to approach changes,
+verify their work, and prepare pull requests.
 
-## Estructura
+The guidelines cover code design, accessibility, security, testing, and
+documentation across technology stacks. The templates show how to adopt those
+practices while keeping each project's architecture, commands, and conventions
+in its own guide. They include entry points for Codex, Claude, and GitHub Copilot.
 
-- [Base normativa](AI_GUIDELINESS_BASE.md).
-- [Plantilla de guías por proyecto](templates/AI_GUIDELINESS.md).
-- [Entrada para Codex](templates/AGENTS.md).
-- [Entrada para Claude](templates/CLAUDE.md).
-- [Plantilla de Pull Request](templates/pull_request_template.md).
+## Repository contents
 
-## Adopción en un proyecto
+- [Shared guidelines](AI_GUIDELINESS_BASE.md).
+- [Project guidelines template](templates/AI_GUIDELINESS.md).
+- [Codex entry point](templates/AGENTS.md).
+- [Claude entry point](templates/CLAUDE.md).
+- [GitHub Copilot entry point](templates/copilot-instructions.md).
+- Pull request templates in [English](templates/pull_request_template.md) and
+  [Spanish](templates/pull_request_template.es.md).
 
-1. Copiar `templates/AI_GUIDELINESS.md` a la raíz del proyecto.
-2. Registrar en ella el repositorio de esta base, un SHA completo y la forma de
-   acceso autenticado o la ruta del checkout local. Reemplazar los placeholders.
-3. Completar stack, arquitectura, comandos reales y adaptaciones del proyecto.
-4. Copiar la entrada de cada agente utilizado a la raíz del proyecto.
-5. Copiar la plantilla de PR a `.github/pull_request_template.md` y ajustarla.
-6. Comprobar que el agente puede leer la revisión fijada de la base antes de trabajar.
+## Adopting these guidelines in a project
 
-La cadena de lectura es: archivo del agente → guías del proyecto → base compartida.
-Cada proyecto fija su revisión para que las actualizaciones sean explícitas.
-No hace falta copiar las reglas generales dentro de cada guía particular.
+1. Copy `templates/AI_GUIDELINESS.md` to the project root.
+2. Record this repository, a full commit SHA, and how to access that exact
+   revision. Replace the placeholders.
+3. Document the stack, architecture, commands, project language, and any
+   project-specific adaptations.
+4. Copy each agent entry point to its supported location in the project, such as
+   `AGENTS.md`, `CLAUDE.md`, or `.github/copilot-instructions.md`.
+5. Choose the pull request template that matches the project language and copy
+   it to `.github/pull_request_template.md`.
+6. Before work begins, verify that the agent can read the pinned revision of the
+   shared guidelines.
 
-## Mantenimiento
+The reading order is: agent entry point → project guidelines → shared guidelines.
+Each project pins a revision so updates are explicit. General rules do not need
+to be copied into every project-specific guide.
 
-Cambiar reglas generales aquí y decisiones particulares en el proyecto correspondiente.
-Usar PR hacia `develop`, estabilizar y publicar hacia `main` según la base.
-La creación inicial del repositorio constituye la excepción de bootstrap; después
-se aplica el flujo de PR. Este repositorio documental no despliega un producto.
+### Project language
+
+Set the project language to English or Spanish in the adopting project's
+`AI_GUIDELINESS.md`. Use it for the project's README, documentation, and pull
+requests. The pinned shared guidelines are maintained in English, and the
+product's user-facing languages are recorded separately.
+
+## Maintenance
+
+Update general rules here and project-specific decisions in the relevant project.
+Use pull requests targeting `develop`, then stabilize and publish to `main` as
+described in the shared guidelines. Initial repository creation is the bootstrap
+exception; use the pull request workflow thereafter. This documentation repository
+does not deploy a product.
+
+## License
+
+Released under the [MIT License](LICENSE).

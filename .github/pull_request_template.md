@@ -1,42 +1,45 @@
-<!-- Título: <type>[optional scope]: <description>, en inglés. Eliminar secciones que no apliquen. -->
-## Resumen
+# Pull request
 
-<!-- Problema concreto y resultado del cambio. -->
+<!-- Title: <type>[optional scope]: <description>. Remove sections that do not apply. -->
 
-Branch base:
-Branch de origen:
+## Summary
 
-## Cambios y motivo
+<!-- Specific problem and outcome of the change. -->
 
--
+Target branch:
+Source branch:
 
-## Validación
-
-<!-- Comandos ejecutados y resultados; verificaciones manuales y límites. No afirmar checks no ejecutados. -->
+## Changes and rationale
 
 -
 
-## Evidencia visual
+## Validation
 
-<!-- Capturas o grabaciones para cambios visuales, si aplica. -->
+<!-- Commands run and results; manual checks and limitations. Do not claim checks that were not run. -->
 
-## Riesgos, compatibilidad y despliegue
+-
 
-<!-- Incompatibilidades, permisos, datos, configuración, migraciones y rollback según alcance.
-Indicar si el merge despliega y si requiere sincronizar main → develop. -->
+## Visual evidence
 
-## Documentación e issues
+<!-- Screenshots or recordings for visual changes, if applicable. -->
 
-<!-- Documentación afectada o revisada sin cambios. Closes #123 cuando corresponda. -->
+## Risks, compatibility, and deployment
 
-## Revisión
+<!-- Incompatibilities, permissions, data, configuration, migrations, and rollback as relevant.
+State whether merging deploys and whether main → develop synchronization is required. -->
 
-- [ ] Leí las guías del proyecto y la revisión adoptada de la base.
-- [ ] El alcance y la rama base corresponden a la estrategia acordada.
-- [ ] Reutilicé código existente y mantuve responsabilidades claras cuando aplica.
-- [ ] Revisé seguridad, permisos y ausencia de secretos según el cambio.
-- [ ] Revisé accesibilidad, teclado y responsive si cambia la interfaz.
-- [ ] Ejecuté las validaciones pertinentes y documenté sus resultados y limitaciones.
-- [ ] Actualicé la documentación afectada; si cambiaron reglas, revisé sus referencias.
+## Documentation and issues
 
-<!-- Eliminar los puntos que no apliquen o explicar por qué; no marcarlos como ejecutados. -->
+<!-- Documentation changed or reviewed with no changes. Closes #123 when applicable. -->
+
+## Review
+
+- [ ] I read the project guidelines and the adopted revision of the shared guidelines.
+- [ ] The scope and target branch follow the agreed strategy.
+- [ ] I reused existing code and kept responsibilities clear where applicable.
+- [ ] I reviewed security, permissions, and the absence of secrets as relevant.
+- [ ] I reviewed accessibility, keyboard support, and responsive behavior if the UI changed.
+- [ ] I ran relevant validations and documented their results and limitations.
+- [ ] I updated affected documentation; if rules changed, I reviewed their references.
+
+<!-- Remove items that do not apply or explain why; do not mark checks as complete if they were not run. -->

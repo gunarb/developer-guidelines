@@ -1,39 +1,46 @@
-# Guías del proyecto
+# Project Guidelines
 
-## Lectura obligatoria de la base
+## Required reading of the shared guidelines
 
-Antes de desarrollar, leer completamente `AI_GUIDELINESS_BASE.md` del repositorio
-privado `gunarb/developer-guidelines`, en la revisión fijada a continuación.
+Before development, read `AI_GUIDELINESS_BASE.md` from
+`gunarb/developer-guidelines` in full at the revision pinned below.
 
-- Revisión de la base: `<SHA completo del commit adoptado>`.
-- Acceso: `<ruta de checkout local en esa revisión o acceso autenticado al archivo>`.
+- Guidelines revision: `<full SHA of the adopted commit>`.
+- Access: `<local checkout path at that revision or URL to the file at that commit>`.
 
-No comenzar la implementación si no se pudo leer la base. Solicitar acceso o una
-copia verificada. Las instrucciones de mayor prioridad prevalecen; las adaptaciones
-explícitas de este proyecto prevalecen sobre las reglas generales en su ámbito.
+Do not begin implementation if the shared guidelines could not be read. Request
+access or a verified copy. Higher-priority instructions take precedence;
+explicit project adaptations take precedence over general rules within their scope.
 
-## Objetivo y alcance
+## Purpose and scope
 
-Completar con los requisitos confirmados y límites del proyecto.
+Complete with the project's confirmed requirements and boundaries.
 
-## Stack y arquitectura
+## Stack and architecture
 
-Completar con tecnologías, versiones, carpetas y responsabilidades reales.
+Complete with the actual technologies, versions, folders, and responsibilities.
 
-## Convenciones particulares
+## Project-specific conventions
 
-Completar con contenido, idiomas, estilos, datos, permisos e integraciones aplicables.
+Complete with applicable content, styles, data, permissions, and integrations.
 
-## Validaciones
+## Project language
 
-Registrar comandos existentes, directorio de ejecución y comprobaciones manuales.
-Distinguir validaciones disponibles de las pendientes de configurar.
+- Project language: `<English or Spanish>`. Use it for the README, project
+  documentation, and pull requests. Install the matching pull request template.
+- Product languages: `<supported user-facing languages, if applicable>`.
 
-## Git, PR y despliegue
+## Validation
 
-Aplicar el flujo de la base. Documentar checks disponibles, despliegue y cualquier
-adaptación necesaria sin dar por configuradas protecciones que no existen.
+Record existing commands, working directories, and manual checks. Distinguish
+available validations from those that still need to be configured.
 
-## Adaptaciones a la base
+## Git, pull requests, and deployment
 
-Ninguna inicialmente. Registrar regla adaptada, motivo y alcance cuando corresponda.
+Follow the workflow in the shared guidelines. Document available checks,
+deployment, and any necessary adaptations; do not claim protections are configured
+when they are not.
+
+## Adaptations to the shared guidelines
+
+None initially. Record the adapted rule, reason, and scope when applicable.
