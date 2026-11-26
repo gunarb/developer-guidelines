@@ -1,7 +1,14 @@
 # Developer Guidelines
 
-The source of truth for my development and AI-agent collaboration guidelines,
-independent of technology stack.
+I created this repository to capture the development practices I want to carry
+from one project to the next, especially when working with AI coding agents.
+It gives developers and agents a shared reference for how to approach changes,
+verify their work, and prepare pull requests.
+
+The guidelines cover code design, accessibility, security, testing, and
+documentation across technology stacks. The templates show how to adopt those
+practices while keeping each project's architecture, commands, and conventions
+in its own guide. They include entry points for Codex, Claude, and GitHub Copilot.
 
 ## Repository contents
 
